@@ -10,7 +10,15 @@ import com.stocos.dao.DefaultDaoImpl;
 
 public class ProdutoDao extends DefaultDaoImpl<Produto> {
 
-	public ProdutoDao() {
+	public static ProdutoDao INSTANCE;
+
+	public static ProdutoDao getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new ProdutoDao();
+		return INSTANCE;
+	}
+
+	private ProdutoDao() {
 		setUnique("nome");
 	}
 

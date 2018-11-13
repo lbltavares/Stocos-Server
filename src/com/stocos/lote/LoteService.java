@@ -16,17 +16,17 @@ import com.stocos.servico.DefaultServicoImpl;
 public class LoteService extends DefaultServicoImpl<Lote> {
 
 	public LoteService() {
-		super(new LoteDao());
+		super(LoteDao.getInstance());
 	}
 
-	// Calcula se e possivel adicionar o lote
+	// Calcula se e possivel adicionar o lote:
 	private boolean podeAdicionar(Lote lote) {
 		// Obtem a rede do lote a ser adicionado
-		RedeCosmeticosDao redeDao = new RedeCosmeticosDao();
+		RedeCosmeticosDao redeDao = RedeCosmeticosDao.getInstance();
 		RedeCosmeticos rede = redeDao.getById(lote.getIdRede()).getValue();
 
 		// Obtem o produto atrelado ao lote a ser adicionado
-		ProdutoDao pDao = new ProdutoDao();
+		ProdutoDao pDao = ProdutoDao.getInstance();
 		Produto p = pDao.getById(lote.getIdProduto()).getValue();
 		double total = p.getVolume() * lote.getQuantidade();
 

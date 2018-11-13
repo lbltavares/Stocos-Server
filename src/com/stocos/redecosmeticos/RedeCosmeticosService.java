@@ -16,7 +16,7 @@ import com.stocos.servico.DefaultServicoImpl;
 public class RedeCosmeticosService extends DefaultServicoImpl<RedeCosmeticos> {
 
 	public RedeCosmeticosService() {
-		super(new RedeCosmeticosDao());
+		super(RedeCosmeticosDao.getInstance());
 	}
 
 	@Override
@@ -31,8 +31,8 @@ public class RedeCosmeticosService extends DefaultServicoImpl<RedeCosmeticos> {
 	}
 
 	public String getOcupacao(Query query) {
-		ProdutoDao pDao = new ProdutoDao();
-		LoteDao loteDao = new LoteDao();
+		ProdutoDao pDao = ProdutoDao.getInstance();
+		LoteDao loteDao = LoteDao.getInstance();
 		String idRede = query.get("idrede");
 		double ocupacao = 0;
 		Map<UUID, Lote> lotes = loteDao.getByAtributo("id-rede", idRede);

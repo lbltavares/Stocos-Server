@@ -10,7 +10,15 @@ import com.stocos.dao.DefaultDaoImpl;
 
 public class RedeCosmeticosDao extends DefaultDaoImpl<RedeCosmeticos> {
 
-	public RedeCosmeticosDao() {
+	public static RedeCosmeticosDao INSTANCE;
+
+	public static RedeCosmeticosDao getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new RedeCosmeticosDao();
+		return INSTANCE;
+	}
+
+	private RedeCosmeticosDao() {
 		setUnique("nome");
 	}
 

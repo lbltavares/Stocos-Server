@@ -15,6 +15,7 @@ import org.simpleframework.transport.connect.Connection;
 import org.simpleframework.transport.connect.SocketConnection;
 
 import com.stocos.controller.Controller;
+import com.stocos.controller.ControllerImpl;
 
 public class Server implements Container {
 
@@ -94,7 +95,7 @@ public class Server implements Container {
 			res.setDate("Last-Modified", System.currentTimeMillis());
 
 			try {
-				Controller controller = new Controller(req, res);
+				Controller controller = new ControllerImpl(req, res);
 				controller.handle();
 			} catch (Exception e) {
 				ps.println("Houve um erro ao processar o servico: " + e.getMessage());

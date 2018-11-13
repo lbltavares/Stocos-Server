@@ -145,6 +145,48 @@ public abstract class DefaultDaoImpl<O> implements Dao<UUID, O> {
 		return false;
 	}
 
+	public synchronized List<JSONObject> getByAtributoAsJson(String atr, Object valor) {
+		return getReader().lines().map(JSONObject::new).filter(json -> {
+			return json.has(atr) && json.get(atr).equals(valor);
+		}).collect(Collectors.toList());
+	}
+
+	public synchronized List<JSONObject> getAllAsJson() {
+		return getReader() //
+				.lines() //
+				.map(JSONObject::new) //
+				.collect(Collectors.toList());
+	}
+
+	public synchronized JSONObject getByIdAsJson(String id) {
+		return getReader() //
+				.lines() //
+				.map(JSONObject::new) //
+				.filter(e -> e.get(CAMPO_UUID).equals(id)) //
+				.findAny().get();
+	}
+
+	public synchronized List<String> getByAtributoAsString(String atr, Object valor) {
+		return getReader().lines().map(JSONObject::new).filter(json -> {
+			return json.has(atr) && json.get(atr).equals(valor);
+		}).map(e -> e.toString()).collect(Collectors.toList());
+	}
+
+	public synchronized List<String> getAllAsString() {
+		return getReader() //
+				.lines() //
+				.collect(Collectors.toList());
+	}
+
+	public synchronized String getByIdAsString(String id) {
+		return getReader() //
+				.lines() //
+				.map(JSONObject::new) //
+				.filter(e -> e.get(CAMPO_UUID).equals(id)) //
+				.map(e -> e.toString()) //
+				.findAny().get();
+	}
+
 	public JSONObject entryToJson(Entry<UUID, O> e) {
 		if (e == null)
 			return new JSONObject();
@@ -165,7 +207,7 @@ public abstract class DefaultDaoImpl<O> implements Dao<UUID, O> {
 
 	private long contarConflitos(Map<UUID, O> map, O obj) {
 		JSONObject target = toJson(obj);
-		return map.entrySet().stream().map(e -> entryToJson(e)).filter(json -> {
+		return map.entrySet().stream().map(this::entryToJson).filter(json -> {
 			for (String atr : atributosUnicos) {
 				Object jsonValue = json.has(atr) ? json.get(atr) : "";
 				Object targetValue = target.has(atr) ? target.get(atr) : "";
@@ -175,5 +217,4 @@ public abstract class DefaultDaoImpl<O> implements Dao<UUID, O> {
 			return false;
 		}).count();
 	}
-
 }

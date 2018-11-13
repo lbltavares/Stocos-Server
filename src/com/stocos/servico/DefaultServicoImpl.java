@@ -1,6 +1,6 @@
 package com.stocos.servico;
 
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.UUID;
 
@@ -24,26 +24,25 @@ public class DefaultServicoImpl<O> implements Servico<UUID, O> {
 
 	@Override
 	public String getAll() throws Exception {
-		Map<UUID, O> map = dao.getAll();
+		List<JSONObject> jsonList = dao.getAllAsJson();
 		JSONArray arr = new JSONArray();
-		map.entrySet().stream().map(dao::entryToJson).forEach(arr::put);
+		jsonList.forEach(arr::put);
 		return arr.toString();
 	}
 
 	@Override
 	public String getById(Query query) throws Exception {
 		String uuid = query.get(DefaultDaoImpl.CAMPO_UUID);
-		Entry<UUID, O> e = dao.getById(UUID.fromString(uuid));
 		JSONArray arr = new JSONArray();
-		arr.put(dao.entryToJson(e));
+		arr.put(dao.getByIdAsJson(uuid));
 		return arr.toString();
 	}
 
 	@Override
 	public String getByAtributo(Entry<String, String> entry) throws Exception {
-		Map<UUID, O> map = dao.getByAtributo(entry.getKey(), entry.getValue());
+		List<JSONObject> jsonList = dao.getByAtributoAsJson(entry.getKey(), entry.getValue());
 		JSONArray arr = new JSONArray();
-		map.entrySet().stream().map(dao::entryToJson).forEach(arr::put);
+		jsonList.forEach(arr::put);
 		return arr.toString();
 	}
 

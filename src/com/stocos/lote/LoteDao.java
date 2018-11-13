@@ -10,8 +10,16 @@ import com.stocos.dao.DefaultDaoImpl;
 
 public class LoteDao extends DefaultDaoImpl<Lote> {
 
-	public LoteDao() {
+	public static LoteDao INSTANCE;
 
+	public static LoteDao getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new LoteDao();
+		return INSTANCE;
+	}
+
+	private LoteDao() {
+		// Setar os atributos unique, se necessario
 	}
 
 	@Override

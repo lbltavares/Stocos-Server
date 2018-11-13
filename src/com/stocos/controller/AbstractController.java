@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import org.simpleframework.http.Request;
 import org.simpleframework.http.Response;
 
-public abstract class AbstractController implements IController {
+public abstract class AbstractController implements Controller {
 
 	private boolean respondido = false;
 	private Request req;
