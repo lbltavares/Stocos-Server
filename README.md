@@ -68,7 +68,7 @@ TIPO|MÉTODO|QUERY|CORPO|DESCRIÇÃO
 -|-|-|-|-
 GET|/getAll|||Obtém uma array json com todos os itens
 GET|/getById|id=123abc||Obtém o item com o id 123abc
-GET|/getByAtributo|atributo=valor||Obtém uma array json com todos os itens com aquele atributo=valor
+GET|/getByAtributo|atributo=valor||Obtém uma array json com todos os itens cujo aquele atributo = valor
 GET|/delete|id=123abc||Deleta o item com id=123abc
 POST|/add||JSON do item (sem o id)|Adiciona um item no banco. Retorna true se a operação foi um sucesso, false caso contrário.
 POST|/update||JSON do item (com o id)|Modifica o item com o id passado no json, retorna true se a operação foi um sucesso, false caso contrário.
