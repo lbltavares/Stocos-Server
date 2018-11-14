@@ -50,7 +50,7 @@ public class LoteService extends DefaultServicoImpl<Lote> {
 		if (lote.getStatus() != 1)
 			throw new Exception("Erro ao adicionar lote! O status inicial deve ser 1." + lote.getStatus());
 		else if (podeAdicionar(lote))
-			return "" + getDao().create(lote);
+			return new JSONObject().put("status", getDao().create(lote)).toString();
 		else
 			throw new Exception("Erro ao adicionar lote: Capacidade insuficiente!");
 	}

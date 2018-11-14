@@ -1,1 +1,0 @@
-{"telefone":"(56) 9415-2496","endereco":"7686 Moraes Travessa","capacidade":1000,"nome":"Marquardt","id":"9c94f3c0-f063-4c0b-b518-e274e405d319","email":"Marquardt@gmail.com"}

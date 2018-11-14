@@ -1,1 +1,0 @@
-{"volume":1,"marca":"Hoffman","categoria":"Sabonete","nome":"Sabonete Hoffman","id":"c7b40669-25cc-4971-b9a2-452d6e9b150c"}
