@@ -60,7 +60,7 @@ public class LoteService extends DefaultServicoImpl<Lote> {
 		UUID id = UUID.fromString(json.getString(DefaultDaoImpl.CAMPO_UUID));
 		Lote lote = getDao().getById(id).getValue();
 		Lote loteModificado = getDao().fromJson(json);
-		if (lote.getStatus() <= loteModificado.getStatus()) {
+		if (loteModificado.getStatus() <= lote.getStatus()) {
 			throw new Exception("Voce deve avancar o status do lote. Status atual: " + lote.getStatus());
 		} else if (loteModificado.getStatus() == 2) { // ENTREGUE
 			return "" + getDao().update(id, loteModificado);

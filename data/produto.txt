@@ -1,0 +1,100 @@
+{"volume":7.496,"marca":"Kochan","categoria":"Blush","nome":"Blush Kochan","id":"39a98c4b-4d36-47dc-817c-955d8eb2c4f3"}
+{"volume":5.3576,"marca":"Ihly","categoria":"Sabonete","nome":"Sabonete Ihly","id":"1aee962d-2b44-4b7b-88d4-378ef5e5e54b"}
+{"volume":5.614,"marca":"Biba","categoria":"Condicionador","nome":"Condicionador Biba","id":"722306cf-8394-4c6f-a937-f21b66e84d2b"}
+{"volume":6.048,"marca":"Benzing","categoria":"Blush","nome":"Blush Benzing","id":"72f43803-6b9f-4638-9e7e-5725a6944f85"}
+{"volume":9.541,"marca":"Liebach","categoria":"Condicionador","nome":"Condicionador Liebach","id":"a74ef8c8-f697-4d62-8958-8b764c2ee662"}
+{"volume":14.350000000000001,"marca":"Sollner","categoria":"Paleta","nome":"Paleta de Contorno Sollner","id":"6d50d664-a6d7-4547-88cb-e499d50276d5"}
+{"volume":5.07369,"marca":"Schäffer","categoria":"Rimmel","nome":"Rimmel Schäffer","id":"78df7cab-481c-469b-ad09-0892fefde36c"}
+{"volume":8.124,"marca":"Kleiss","categoria":"Condicionador","nome":"Condicionador Kleiss","id":"aec8913e-5bf1-48e9-9c90-3b85682f00a1"}
+{"volume":10.463000000000001,"marca":"Danner","categoria":"Paleta","nome":"Paleta de Contorno Danner","id":"51c833ca-1a03-4300-b497-1222efb679e3"}
+{"volume":13.179,"marca":"Mäder","categoria":"Sabonete","nome":"Sabonete Mäder","id":"d49f139c-82b1-4e04-ae16-81365e6a770f"}
+{"volume":7.51,"marca":"Grosskopf","categoria":"Lapis","nome":"Lapis Grosskopf","id":"04a42222-a6f9-4290-b945-56d03da0192b"}
+{"volume":8.16,"marca":"Nodler","categoria":"Base","nome":"Base Liquida Nodler","id":"daef6727-ffab-4c5c-9580-cef3a8397d42"}
+{"volume":9.808,"marca":"Walther","categoria":"Sombra","nome":"Sombra Walther","id":"d286a913-a694-4047-8ca8-d965a6b142c7"}
+{"volume":6.216,"marca":"Freigang","categoria":"Shampoo","nome":"Shampoo Freigang","id":"5f5545af-8291-4ecc-a743-0d9ffe82c6bf"}
+{"volume":8.370000000000001,"marca":"Dobler","categoria":"Creme","nome":"Creme Dobler","id":"53a798c2-830a-4b91-846f-1e6d6d7e877c"}
+{"volume":5.2273,"marca":"Henkel","categoria":"Pincel","nome":"Pincel Henkel","id":"2ffb9c9b-5f40-4c34-8cdf-5fb57bed3144"}
+{"volume":7.2620000000000005,"marca":"Bittner","categoria":"Hastes","nome":"Hastes de Limpeza Bittner","id":"a77067a2-eead-4c19-bd77-f8be48523799"}
+{"volume":10,"marca":"Maak","categoria":"Paleta","nome":"Paleta de Contorno Maak","id":"a4325cd1-cba6-4d6e-8594-12f1cd7ac325"}
+{"volume":12.48,"marca":"Rath","categoria":"Shower","nome":"Shower Oil Rath","id":"87d38470-9c44-431e-b3cf-5c444cc5ff55"}
+{"volume":7.189,"marca":"Paukner","categoria":"Cilios","nome":"Cilios Paukner","id":"514fad24-384b-439c-9758-1606760fca0a"}
+{"volume":6.3919999999999995,"marca":"Wassiluk","categoria":"Cilios","nome":"Cilios Wassiluk","id":"49be2ba9-377f-4ffc-bcbc-0cb26cc27a97"}
+{"volume":9.767,"marca":"Rokossa","categoria":"Delineador","nome":"Delineador Rokossa","id":"6df91758-d76a-4c4b-9124-c430a73bdfea"}
+{"volume":6.5329999999999995,"marca":"Bickel","categoria":"Lapis","nome":"Lapis Bickel","id":"5007f16b-c916-485b-bf00-d130641aad6f"}
+{"volume":14.62,"marca":"Herwig","categoria":"Rimmel","nome":"Rimmel Herwig","id":"1985b340-f373-4d96-a81b-140990851135"}
+{"volume":10.793,"marca":"Herwig","categoria":"Blush","nome":"Blush Herwig","id":"860ddd9a-ac1f-4102-91d2-ed9fa3234586"}
+{"volume":5.067,"marca":"Kofferschlager","categoria":"Shampoo","nome":"Shampoo Kofferschlager","id":"2419f2e5-957e-48d9-9b3d-e86403fd5c08"}
+{"volume":8.977,"marca":"Schaffarzik","categoria":"Paleta","nome":"Paleta de Contorno Schaffarzik","id":"8a587c08-14fd-4341-b781-5abebb025c47"}
+{"volume":12.238,"marca":"Leberer","categoria":"Sabonete","nome":"Sabonete Leberer","id":"137ebe58-151d-4aa7-88ef-2d228c496973"}
+{"volume":14.097,"marca":"Rautenkranz","categoria":"Base","nome":"Base Liquida Rautenkranz","id":"2a5ad37e-1c87-4c16-97dc-91f6e4fe6b5a"}
+{"volume":8.536000000000001,"marca":"Neupert","categoria":"Creme","nome":"Creme Neupert","id":"02dd5144-e1b1-4367-90e7-ca36f14d438b"}
+{"volume":9.248000000000001,"marca":"Kazmarek","categoria":"Hastes","nome":"Hastes de Limpeza Kazmarek","id":"2c920d9f-acec-4f31-ae5b-afa1256d11d3"}
+{"volume":14.523,"marca":"Kosenkow","categoria":"Sabonete","nome":"Sabonete Kosenkow","id":"2e8e3856-a5d0-49c1-adcc-b43d12b9da95"}
+{"volume":9.022,"marca":"Morhelfer","categoria":"Paleta","nome":"Paleta de Contorno Morhelfer","id":"0ab3fff5-b082-493f-b5a2-4d8d09d31161"}
+{"volume":9.681000000000001,"marca":"Komoll","categoria":"Hidratante","nome":"Hidratante Komoll","id":"2f24db29-e95d-4b7d-bc7f-90abc0a9713c"}
+{"volume":12.212,"marca":"Kühnke","categoria":"Blush","nome":"Blush Kühnke","id":"c69f8f98-e578-46a8-b3d1-00f7090e23b5"}
+{"volume":13.805,"marca":"Burger","categoria":"Cilios","nome":"Cilios Burger","id":"5c489cb0-4156-4c7b-ad93-38e6a6b85560"}
+{"volume":12.284,"marca":"Goebel","categoria":"Oleo","nome":"Oleo Goebel","id":"244e2cbe-1791-40de-a346-882d1008a84c"}
+{"volume":8.376999999999999,"marca":"Dold","categoria":"Oleo","nome":"Oleo Dold","id":"b6da8a72-bd60-417e-91f4-32c9175c646d"}
+{"volume":8.051,"marca":"Kappe","categoria":"Hastes","nome":"Hastes de Limpeza Kappe","id":"b038425f-b5e8-4bdc-a4f2-ef5c6273d6d5"}
+{"volume":5.1947,"marca":"Wünsche","categoria":"Base","nome":"Base Liquida Wünsche","id":"de815bf4-9960-4789-9582-2a673e51789d"}
+{"volume":14.152000000000001,"marca":"Schlawitz","categoria":"Sombra","nome":"Sombra Schlawitz","id":"7404c37a-66e9-42c7-aa3b-c412e5db387a"}
+{"volume":12.16,"marca":"Seiders","categoria":"Pincel","nome":"Pincel Seiders","id":"4e646bbc-ba92-4999-8893-d296c91e2c56"}
+{"volume":9.245999999999999,"marca":"Gratzky","categoria":"Sabonete","nome":"Sabonete Gratzky","id":"f499b284-5ca0-495e-b79e-1e86930ff9df"}
+{"volume":11.007,"marca":"Cronjäger","categoria":"Hastes","nome":"Hastes de Limpeza Cronjäger","id":"4007ef89-4b87-4e31-834c-2b4a79d6ebb2"}
+{"volume":12.522,"marca":"Patzwahl","categoria":"Delineador","nome":"Delineador Patzwahl","id":"39f87dd2-805c-471e-9b1f-0c80acc5c508"}
+{"volume":10.965,"marca":"Aigner","categoria":"Hidratante","nome":"Hidratante Aigner","id":"cacb02df-bd96-4952-b333-24cf52fb2fce"}
+{"volume":5.3314,"marca":"Baarck","categoria":"Sabonete","nome":"Sabonete Baarck","id":"9454177c-eb75-4a1f-8af7-c8cc7d4c4fbf"}
+{"volume":13.055,"marca":"Stengel","categoria":"Rimmel","nome":"Rimmel Stengel","id":"41967998-4e65-4ab0-aa16-a37b2bbccfd3"}
+{"volume":11.177,"marca":"Roba","categoria":"Sabonete","nome":"Sabonete Roba","id":"6ab223be-6d37-4fd6-8f10-352c2a97364a"}
+{"volume":6.0760000000000005,"marca":"Roos","categoria":"Sombra","nome":"Sombra Roos","id":"afb94cad-197d-4df8-abf6-876e03271114"}
+{"volume":10.556999999999999,"marca":"Ewald","categoria":"Rimmel","nome":"Rimmel Ewald","id":"964ddbb1-ed41-48f3-b698-fd3692c785e4"}
+{"volume":14.645,"marca":"Sachse","categoria":"Pincel","nome":"Pincel Sachse","id":"b663de5b-2b80-49fa-8b32-1f0dfc005b99"}
+{"volume":7,"marca":"Kunz","categoria":"Lapis","nome":"Lapis Kunz","id":"76905ff0-e73e-45cb-9d5c-6ba20847f7ed"}
+{"volume":7.443,"marca":"Restorff","categoria":"Sabonete","nome":"Sabonete Restorff","id":"11e76c66-b480-4516-bdfa-e869f06da605"}
+{"volume":12.354000000000001,"marca":"Küsters","categoria":"Base","nome":"Base Liquida Küsters","id":"5d3a59cb-74ff-44d3-b8db-d597438c8329"}
+{"volume":13.298,"marca":"Zeuch","categoria":"Rimmel","nome":"Rimmel Zeuch","id":"b5045097-ebbd-4e00-993c-c8e08bebfe63"}
+{"volume":13.245000000000001,"marca":"Weller","categoria":"Shower","nome":"Shower Oil Weller","id":"548d9277-8ec5-4c65-b751-a70fa589bbe9"}
+{"volume":8.478,"marca":"Schweisfurth","categoria":"Pincel","nome":"Pincel Schweisfurth","id":"2ec034e9-7b42-459a-8c7c-f1b9427d3e8b"}
+{"volume":7.749,"marca":"Brömme","categoria":"Rimmel","nome":"Rimmel Brömme","id":"f3d4e786-5828-420a-b00a-233596377e9c"}
+{"volume":9.545,"marca":"Bozsik","categoria":"Sombra","nome":"Sombra Bozsik","id":"36e80ec0-a956-4cf9-a9a4-49cb3516aa41"}
+{"volume":14.152000000000001,"marca":"Eberhard","categoria":"Sombra","nome":"Sombra Eberhard","id":"8856d671-882a-4b13-a923-a7fccfd3800c"}
+{"volume":12.718,"marca":"Kubera","categoria":"Cilios","nome":"Cilios Kubera","id":"4a12533d-1aea-4dd3-b975-cf5985b85669"}
+{"volume":6.301,"marca":"Mordhorst","categoria":"Sabonete","nome":"Sabonete Mordhorst","id":"c3bba00e-d625-4839-aa3f-f4e4fa5b21c4"}
+{"volume":8.123000000000001,"marca":"Filipowski","categoria":"Shower","nome":"Shower Oil Filipowski","id":"7a238aa3-1740-4baa-87f8-406be56c2343"}
+{"volume":7.788,"marca":"Cors","categoria":"Condicionador","nome":"Condicionador Cors","id":"1c12d01b-b981-4cab-ab0f-f5ed76aa0b1c"}
+{"volume":6.091,"marca":"Kumbernuss","categoria":"Pó","nome":"Pó Compacto Kumbernuss","id":"3a4b9759-49f2-4505-a40e-e2bf2c786f60"}
+{"volume":5.2295,"marca":"Kelm","categoria":"Sombra","nome":"Sombra Kelm","id":"6f67d3fd-9ddc-4080-aad5-fcf31874fc6e"}
+{"volume":9.009,"marca":"Schäfer","categoria":"Base","nome":"Base Liquida Schäfer","id":"ade5afe1-8c11-4bac-be35-217632c93141"}
+{"volume":5.3,"marca":"Spitzmüller","categoria":"Sombra","nome":"Sombra Spitzmüller","id":"fe81b738-eb3b-4c56-b05d-51f29f892c0b"}
+{"volume":9.565000000000001,"marca":"Mühleis","categoria":"Sabonete","nome":"Sabonete Mühleis","id":"c1ab541b-0c0d-45a8-a64f-5d553e7923e0"}
+{"volume":9.915,"marca":"Mockenhaupt","categoria":"Cilios","nome":"Cilios Mockenhaupt","id":"230b879f-98df-4741-9819-85708d65fdd0"}
+{"volume":9.568999999999999,"marca":"Morhelfer","categoria":"Cilios","nome":"Cilios Morhelfer","id":"cfcdcaaa-b14b-4dff-93ae-7be9b2568295"}
+{"volume":11.443,"marca":"Rittweg","categoria":"Blush","nome":"Blush Rittweg","id":"92179aa0-58fc-4c72-8527-00dd2ed79618"}
+{"volume":6.048,"marca":"Küsters","categoria":"Lapis","nome":"Lapis Küsters","id":"6e43f890-28c3-4795-ac37-f51f05251ccf"}
+{"volume":11.157,"marca":"Mrugalla","categoria":"Lapis","nome":"Lapis Mrugalla","id":"e376afee-f47a-4a9b-ba03-32f16cdfed8b"}
+{"volume":9.408999999999999,"marca":"Schniedermeier","categoria":"Base","nome":"Base Liquida Schniedermeier","id":"37ee14f2-acaa-4254-8e6c-d5ed182c73f4"}
+{"volume":8.812999999999999,"marca":"Schreiter","categoria":"Paleta","nome":"Paleta de Contorno Schreiter","id":"077b9c0e-799e-4abc-a90e-0f8dd499b683"}
+{"volume":8.431000000000001,"marca":"Schwirkschlies","categoria":"Cilios","nome":"Cilios Schwirkschlies","id":"25de1d8a-777f-4853-8eaa-ccff886791fc"}
+{"volume":10.419,"marca":"Feuerbach","categoria":"Hidratante","nome":"Hidratante Feuerbach","id":"ea80fd12-fffb-4f1b-8c55-e939fbf9fe84"}
+{"volume":13.433,"marca":"Brömme","categoria":"Batom","nome":"Batom Brömme","id":"155313e6-c6f4-41e2-9228-ec541f0ffee0"}
+{"volume":6.204,"marca":"Kühnemund","categoria":"Base","nome":"Base Liquida Kühnemund","id":"ed225ee1-b223-4276-9b8f-df5f5a4eed46"}
+{"volume":7.365,"marca":"De","categoria":"Creme","nome":"Creme De","id":"07500a68-0c7c-4c29-8c0b-b7acb7f7eabf"}
+{"volume":9.839,"marca":"Gerschler","categoria":"Sabonete","nome":"Sabonete Gerschler","id":"13c5ebf4-71ae-4ca1-9708-bc5469d01ea2"}
+{"volume":6.346,"marca":"Fink","categoria":"Batom","nome":"Batom Fink","id":"95e0b5e1-30a0-44ac-816f-793d9ef4cea7"}
+{"volume":5.2259,"marca":"Frahmeke","categoria":"Base","nome":"Base Liquida Frahmeke","id":"03cca51f-3e89-407d-98d7-01c8c2ad611b"}
+{"volume":8.704,"marca":"Anggreny","categoria":"Paleta","nome":"Paleta de Contorno Anggreny","id":"02978efb-04e4-4ee7-b13e-2949bff16b17"}
+{"volume":9.826,"marca":"Linnenbaum","categoria":"Lapis","nome":"Lapis Linnenbaum","id":"77f13877-70f4-4bd3-9434-0bcb48473278"}
+{"volume":10.770999999999999,"marca":"Reumann","categoria":"Batom","nome":"Batom Reumann","id":"63605030-f0d6-4fa6-95e8-62a6c04bbf27"}
+{"volume":8.033999999999999,"marca":"Tucholke","categoria":"Base","nome":"Base Liquida Tucholke","id":"038104ce-f53a-4493-9dcf-c57a7ed87780"}
+{"volume":14.277,"marca":"Sihler","categoria":"Creme","nome":"Creme Sihler","id":"bc6a4d53-6e64-4784-b6d7-4c9f04e632bb"}
+{"volume":6.886,"marca":"Burkhard","categoria":"Sabonete","nome":"Sabonete Burkhard","id":"7639612c-8812-48e1-9dda-0d6bbc8100ab"}
+{"volume":11.066,"marca":"Smieja","categoria":"Shampoo","nome":"Shampoo Smieja","id":"5c140c60-6077-49b9-836e-d431f6847d01"}
+{"volume":13.917,"marca":"Liebe","categoria":"Hastes","nome":"Hastes de Limpeza Liebe","id":"684c5748-cad8-4ff0-b8ab-08aaa65836fc"}
+{"volume":11.994,"marca":"Holzner","categoria":"Paleta","nome":"Paleta de Contorno Holzner","id":"9fc11ed1-da52-4315-9390-c1f29230bd6d"}
+{"volume":6.103,"marca":"Damaske","categoria":"Creme","nome":"Creme Damaske","id":"a81d9bb4-1171-439e-985d-7009b2233a40"}
+{"volume":5.7848,"marca":"Hoffman","categoria":"Batom","nome":"Batom Hoffman","id":"b662a4ea-5fce-46c6-8577-4d81650f4523"}
+{"volume":14.563,"marca":"Hohnheiser","categoria":"Sabonete","nome":"Sabonete Hohnheiser","id":"f577c441-6d40-4d17-aeb4-89a40e1ffa7e"}
+{"volume":14.862,"marca":"Weiss","categoria":"Hastes","nome":"Hastes de Limpeza Weiss","id":"302f3961-feb8-41cd-a8f1-d7a5e675543b"}
+{"volume":5.8704,"marca":"Lepthin","categoria":"Delineador","nome":"Delineador Lepthin","id":"ed0c785f-573d-4de4-b0a6-6267162382ec"}
+{"volume":9.667,"marca":"Ritter","categoria":"Cilios","nome":"Cilios Ritter","id":"48a97e9f-7208-48a9-9b17-8394a3115000"}
