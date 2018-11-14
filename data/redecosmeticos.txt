@@ -1,0 +1,8 @@
+{"telefone":"1234-5567","endereco":"rua xyz, bairro abc, n 123","capacidade":15000,"nome":"Lojas Rede","id":"47a0c01c-fc82-44c5-90b2-60de84b3f14d","email":"lojasrede@lojasrede.com.br"}
+{"telefone":"3918-2918","endereco":"Avenida Uruguai, 123, Sion","capacidade":23000,"nome":"Drogaria Araujo","id":"d19ed91b-69ad-4ad6-85f3-d52587598428","email":"araujo@araujo.com.br"}
+{"telefone":"2938-2919","endereco":"Rua dos Tupis, 39, Centro","capacidade":23000,"nome":"Casa do Maquiador","id":"532c0ea3-e3fc-45f6-aa58-2bf8f7ba95c2","email":"casadomaquiador@gmail.com"}
+{"telefone":"3918-9182","endereco":"Av. Arthur Bernardes, 123, Santa Lucia","capacidade":120000,"nome":"Loreal","id":"b44e7776-ec3d-4386-a074-f8a150de5030","email":"Loreal@loreal.com"}
+{"telefone":"3918-3918","endereco":"Rua do Amendoim, 14, Mangabeiras","capacidade":33000,"nome":"Beauty One","id":"6914a448-52ca-4f5c-8e9a-26714d51e958","email":"beauty1@beauty1.com"}
+{"telefone":"3918-8172","endereco":"Avenida Getulio Vargas, 45, Savassi","capacidade":22000,"nome":"Cosmeticos e Cia","id":"eb431ea8-7068-4c22-aae2-407ea090d92b","email":"cosmeticosecia@gmail.com"}
+{"telefone":"3918-1234","endereco":"Avenida Nossa Senhora do Carmo, 143","capacidade":199300,"nome":"Avon","id":"ea7e52e1-dc1a-4259-b1e5-fbdbc61d9144","email":"avon@avon.com"}
+{"telefone":"7371-3918","endereco":"Avenida Augusto de Lima, 683","capacidade":24000,"nome":"O Boticario","id":"fc1780e4-aa62-4e21-944e-dff6930a2169","email":"oboticario@oboticario.com"}
