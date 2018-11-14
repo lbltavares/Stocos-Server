@@ -54,7 +54,6 @@ public class LoteService extends DefaultServicoImpl<Lote> {
 			throw new Exception("Erro ao adicionar lote: Capacidade insuficiente!");
 	}
 
-	// Modificar capacidade da rede caso o status tenha mudado para 2 - "ENTREGUE"
 	@Override
 	public String update(JSONObject json) throws Exception {
 		UUID id = UUID.fromString(json.getString(DefaultDaoImpl.CAMPO_UUID));
@@ -72,7 +71,6 @@ public class LoteService extends DefaultServicoImpl<Lote> {
 		return new JSONObject().put("status", "O status informado e invalido. Envie um numero de 1 a 4").toString();
 	}
 
-	// Modificar capacidade da rede
 	@Override
 	public String delete(Query query) throws Exception {
 		return "";

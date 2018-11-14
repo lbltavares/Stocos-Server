@@ -106,8 +106,8 @@ public abstract class DefaultDaoImpl<O> implements Dao<UUID, O> {
 	@Override
 	public synchronized boolean create(O novoObj) {
 		Map<UUID, O> map = getAll();
-		if (contarConflitos(map, novoObj) == 0) {
-			UUID uuid = UUID.randomUUID();
+		UUID uuid = UUID.randomUUID();
+		if (contarConflitos(map, uuid, novoObj) == 0) {
 			JSONObject json = toJson(novoObj).put(CAMPO_UUID, uuid);
 			writeLines(Arrays.asList(json.toString()), true);
 			return true;
@@ -118,7 +118,7 @@ public abstract class DefaultDaoImpl<O> implements Dao<UUID, O> {
 	@Override
 	public synchronized boolean update(UUID id, O novoObj) {
 		Map<UUID, O> map = getAll();
-		if (contarConflitos(map, novoObj) == 0 && map.containsKey(id)) {
+		if (contarConflitos(map, id, novoObj) == 0 && map.containsKey(id)) {
 			map.put(id, novoObj);
 			writeLines(map.entrySet() //
 					.stream() //
@@ -205,9 +205,11 @@ public abstract class DefaultDaoImpl<O> implements Dao<UUID, O> {
 		return new SimpleEntry<UUID, O>(uuid, obj);
 	}
 
-	private long contarConflitos(Map<UUID, O> map, O obj) {
+	private long contarConflitos(Map<UUID, O> map, UUID id, O obj) {
 		JSONObject target = toJson(obj);
 		return map.entrySet().stream().map(this::entryToJson).filter(json -> {
+			if (json.get(CAMPO_UUID).equals(id))
+				return false;
 			for (String atr : atributosUnicos) {
 				Object jsonValue = json.has(atr) ? json.get(atr) : "";
 				Object targetValue = target.has(atr) ? target.get(atr) : "";

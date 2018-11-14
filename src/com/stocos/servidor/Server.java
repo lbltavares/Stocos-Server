@@ -86,13 +86,19 @@ public class Server implements Container {
 	public void handle(Request req, Response res) {
 		try (PrintStream ps = new PrintStream(res.getOutputStream())) {
 			svListeners.forEach(l -> l.onServerRequest(req));
-			res.setValue("Content-Type", "application/json; charset=utf-8");
-			res.setValue("Accept", "application/json; charset=utf-8");
+			res.setValue("Content-Type", "application/json");
+			res.setValue("Accept", "application/json");
+			res.setValue("Accept", "text/plain");
 			res.setValue("Server", "StoCOS/1.0 (Simple 4.0)");
 			res.setValue("Access-Control-Allow-Origin", "*");
 			res.setValue("Access-Control-Allow-Methods", "*");
+			res.setValue("Access-Control-Allow-Headers", "*");
 			res.setDate("Date", System.currentTimeMillis());
 			res.setDate("Last-Modified", System.currentTimeMillis());
+			if (req.getMethod().equalsIgnoreCase("OPTIONS")) {
+				res.close();
+				return;
+			}
 
 			try {
 				Controller controller = new ControllerImpl(req, res);

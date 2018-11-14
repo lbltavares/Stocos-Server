@@ -21,6 +21,7 @@ public class ControllerImpl extends AbstractController {
 
 	@Override
 	public void handle() {
+
 		// Rotas padrao:
 		rotasPadrao("produto", produtoService);
 		rotasPadrao("redecosmeticos", redeService);
@@ -29,7 +30,7 @@ public class ControllerImpl extends AbstractController {
 		// Rotas especificas:
 		get("/produto/getByIdRede", (req, res) -> produtoService.getByIdRede(req.getQuery()));
 		get("/produto/getByNomeRede", (req, res) -> produtoService.getByNomeRede(req.getQuery()));
-		get("/redecosmeticos/getOcupacao", (req, res) -> redeService.getOcupacao(req.getQuery()));
+		get("/redecosmeticos/getOcupacao", (req, res) -> redeService.getOcupacao(req.getQuery().get("idrede")));
 	}
 
 	private <O> void rotasPadrao(String item, DefaultServicoImpl<O> sv) {
@@ -38,6 +39,6 @@ public class ControllerImpl extends AbstractController {
 		get("/" + item + "/getByAtributo", (req, res) -> sv.getByAtributo(req.getQuery().entrySet().iterator().next()));
 		get("/" + item + "/delete", (req, res) -> sv.delete(req.getQuery()));
 		post("/" + item + "/add", (req, res) -> sv.add(new JSONObject(req.getContent())));
-		post("/" + item + "/update", (req, res) -> sv.add(new JSONObject(req.getContent())));
+		post("/" + item + "/update", (req, res) -> sv.update(new JSONObject(req.getContent())));
 	}
 }
