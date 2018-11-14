@@ -6,13 +6,14 @@ import java.util.UUID;
 
 public class Lote {
 
-	private UUID idProduto, idRede;
-	private int quantidade, status; // Status:
-									// 1 - AGENDADO PARA ENTREGA
-									// 2 - ENTREGUE
-									// 3 - AGENDADO PARA RETIRADA
-									// 4 - RETIRADO
+	// Status
+	public static final int AGENDADO_ENTREGA = 1;
+	public static final int ENTREGUE = 2;
+	public static final int AGENDADO_RETIRADA = 3;
+	public static final int RETIRADO = 4;
 
+	private UUID idProduto, idRede;
+	private int quantidade, status;
 	private LocalDate agendamento, entrega;
 	private LocalDateTime validade;
 

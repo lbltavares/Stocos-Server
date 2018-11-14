@@ -1,16 +1,1 @@
-{"volume":15.4,"marca":"Loreal","categoria":"SHAMPOO","nome":"Loreal Kids","id":"4373cddf-ef17-4148-86dc-c60ab21820af"}
-{"volume":3.2,"marca":"Avon","categoria":"MAQUIAGEM","nome":"Rimmel XYZ","id":"a1f5000b-21e2-4fb6-b8da-5467e27c057b"}
-{"volume":2.2,"marca":"Avon","categoria":"MAQUIAGEM","nome":"Batom ABC","id":"07da0ed1-3506-496e-a58b-6d90f05daf6f"}
-{"volume":1.3,"marca":"Jequiti","categoria":"MAQUIAGEM","nome":"Cilios Postiços","id":"2f6747f8-81c4-4a7a-bfde-e7e05e9f108b"}
-{"volume":9.4,"marca":"Seda","categoria":"CREMES","nome":"Creme Y","id":"6e3f05c6-a803-4ae2-b03c-a201c2bf7c99"}
-{"volume":4.4,"marca":"Avon","categoria":"MAQUIAGEM","nome":"Delineador","id":"ee5b1961-ea30-4cc6-9bec-0ebbde9706b1"}
-{"volume":3.5,"marca":"Bella","categoria":"MAQUIAGEM","nome":"Pincel xy123","id":"ac488214-c190-4671-99e5-146b8bb61ef1"}
-{"volume":6.5,"marca":"Loreal","categoria":"MAQUIAGEM","nome":"Base ABC","id":"d4970bf2-c40d-49e9-a575-6cd8aac0c7c6"}
-{"volume":6.5,"marca":"Maange","categoria":"MAQUIAGEM","nome":"Escovas de Maquiagem","id":"5466ce77-acd3-4daa-8aae-768051272eea"}
-{"volume":19.5,"marca":"Fenzza","categoria":"MAQUIAGEM","nome":"Maleta de maquiagens XYZ123","id":"baf11404-426c-49f6-b076-5a23431a1af9"}
-{"volume":6.1,"marca":"Ruby Rose","categoria":"MAQUIAGEM","nome":"Espelho para Maquiar","id":"e4ff1cab-7be8-41a7-9928-bc02a7fa56ef"}
-{"volume":3.6,"marca":"Natura","categoria":"MAQUIAGEM","nome":"Blush ABC","id":"7dd7dc0e-69fe-4276-a786-3bbeeb16c011"}
-{"volume":6.6,"marca":"Popfeel","categoria":"MAQUIAGEM","nome":"Sombra de Olho","id":"af77d568-7af4-4923-81ab-46ae3b83770a"}
-{"volume":30,"marca":"Dermablend","categoria":"CREMES","nome":"Vichy Dermablend no35","id":"7a98e221-a4b2-4ba0-87db-1c706574eccb"}
-{"volume":17.4,"marca":"Griffus","categoria":"CREMES","nome":"Creme de Hidratacao Griffus","id":"a7daea01-d488-433c-9002-78a9c3b21247"}
-{"volume":14.4,"marca":"Natura","categoria":"CREMES","nome":"Creme para pele XRF3","id":"ff2404c4-6ff0-47cd-ad4d-9c653fa5d332"}
+{"volume":1,"marca":"Hoffman","categoria":"Sabonete","nome":"Sabonete Hoffman","id":"c7b40669-25cc-4971-b9a2-452d6e9b150c"}

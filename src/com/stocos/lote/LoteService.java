@@ -1,6 +1,5 @@
 package com.stocos.lote;
 
-import java.util.Collection;
 import java.util.UUID;
 
 import org.json.JSONObject;
@@ -11,6 +10,7 @@ import com.stocos.produto.Produto;
 import com.stocos.produto.ProdutoDao;
 import com.stocos.redecosmeticos.RedeCosmeticos;
 import com.stocos.redecosmeticos.RedeCosmeticosDao;
+import com.stocos.redecosmeticos.RedeCosmeticosService;
 import com.stocos.servico.DefaultServicoImpl;
 
 public class LoteService extends DefaultServicoImpl<Lote> {
@@ -20,27 +20,28 @@ public class LoteService extends DefaultServicoImpl<Lote> {
 	}
 
 	// Calcula se e possivel adicionar o lote:
-	private boolean podeAdicionar(Lote lote) {
+	private boolean podeAdicionar(Lote lote) throws Exception {
 		// Obtem a rede do lote a ser adicionado
 		RedeCosmeticosDao redeDao = RedeCosmeticosDao.getInstance();
 		RedeCosmeticos rede = redeDao.getById(lote.getIdRede()).getValue();
+		if (rede == null)
+			throw new Exception("Rede nao encontrada!");
 
 		// Obtem o produto atrelado ao lote a ser adicionado
 		ProdutoDao pDao = ProdutoDao.getInstance();
-		Produto p = pDao.getById(lote.getIdProduto()).getValue();
-		double total = p.getVolume() * lote.getQuantidade();
+		Produto produto = pDao.getById(lote.getIdProduto()).getValue();
+		if (produto == null)
+			throw new Exception("Produto nao encontrado!");
 
-		// Obtem a lista de lotes da rede
-		Collection<Lote> lotes = getDao().getByAtributo("id-rede", lote.getIdRede()).values();
-		for (Lote l : lotes) {
-			if (l.getStatus() == 3) // RETIRADO
-				continue;
-			Produto temp = pDao.getById(l.getIdProduto()).getValue();
-			total += l.getQuantidade() * temp.getVolume();
-			if (total > rede.getCapacidade())
-				return false;
-		}
-		return true;
+		double total = produto.getVolume() * lote.getQuantidade();
+
+		RedeCosmeticosService redeService = new RedeCosmeticosService();
+		double ocupacao = new JSONObject(redeService.getOcupacao(lote.getIdRede().toString())).getDouble("resultado");
+
+		System.out.println("Tentando adicionar um lote de volume " + total + " na rede " + rede.getNome()
+				+ " (capacidade: " + rede.getCapacidade() + " - Ocupacao: " + ocupacao + ")");
+
+		return rede.getCapacidade() > ocupacao + total;
 	}
 
 	@Override

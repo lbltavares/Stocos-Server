@@ -37,7 +37,6 @@ public class RedeCosmeticosService extends DefaultServicoImpl<RedeCosmeticos> {
 	public String getOcupacao(String idRede) {
 		ProdutoDao pDao = ProdutoDao.getInstance();
 		LoteDao loteDao = LoteDao.getInstance();
-		RedeCosmeticosDao.getInstance().getById(UUID.fromString(idRede));
 		double ocupacao = 0;
 		Map<UUID, Lote> lotes = loteDao.getByAtributo("id-rede", idRede);
 		for (Lote l : lotes.values()) {
