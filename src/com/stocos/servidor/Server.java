@@ -40,7 +40,7 @@ public class Server implements Container {
 	}
 
 	public void porta(int p) {
-		if (p != porta) {
+		if (p != porta && p > 0) {
 			porta = p;
 			svListeners.forEach(l -> l.onPortChange(p));
 		}
@@ -92,6 +92,7 @@ public class Server implements Container {
 			@Override
 			public void println(String str) {
 				super.println(str);
+				System.out.println(str);
 				bodySB.append(str + System.lineSeparator());
 			}
 		}) {
@@ -111,12 +112,11 @@ public class Server implements Container {
 			}
 
 			try {
-				Controller controller = new ControllerImpl(req, res);
+				Controller controller = new ControllerImpl(req, res, ps);
 				controller.handle();
 			} catch (Exception e) {
 				ps.println("Houve um erro ao processar o servico: " + e.getMessage());
 			}
-
 			svListeners.forEach(l -> l.onServerResponse(req, res, bodySB.toString()));
 
 		} catch (IOException e) {

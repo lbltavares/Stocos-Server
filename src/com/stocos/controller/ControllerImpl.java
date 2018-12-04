@@ -1,5 +1,7 @@
 package com.stocos.controller;
 
+import java.io.PrintStream;
+
 import org.json.JSONObject;
 import org.simpleframework.http.Request;
 import org.simpleframework.http.Response;
@@ -16,8 +18,8 @@ public class ControllerImpl extends AbstractController {
 	private RedeCosmeticosService redeService = new RedeCosmeticosService();
 	private LoteService loteService = new LoteService();
 
-	public ControllerImpl(Request req, Response res) {
-		super(req, res);
+	public ControllerImpl(Request req, Response res, PrintStream body) {
+		super(req, res, body);
 	}
 
 	@Override

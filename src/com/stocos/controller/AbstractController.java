@@ -9,12 +9,14 @@ import org.simpleframework.http.Response;
 public abstract class AbstractController implements Controller {
 
 	private boolean respondido = false;
+	private PrintStream body;
 	private Request req;
 	private Response res;
 
-	public AbstractController(Request req, Response res) {
+	public AbstractController(Request req, Response res, PrintStream body) {
 		this.req = req;
 		this.res = res;
+		this.body = body;
 	}
 
 	public Request getRequest() {
@@ -54,7 +56,7 @@ public abstract class AbstractController implements Controller {
 			return;
 
 		try {
-			PrintStream body = new PrintStream(res.getPrintStream());
+			body = new PrintStream(res.getPrintStream());
 			String conteudo = "";
 			try {
 				conteudo = r.execute(req, res);
