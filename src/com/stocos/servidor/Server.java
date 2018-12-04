@@ -40,7 +40,10 @@ public class Server implements Container {
 	}
 
 	public void porta(int p) {
-		porta = p;
+		if (p != porta) {
+			porta = p;
+			svListeners.forEach(l -> l.onPortChange(p));
+		}
 	}
 
 	public int porta() {
@@ -60,7 +63,7 @@ public class Server implements Container {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			svListeners.forEach(l -> l.onServerStart());
+			svListeners.forEach(ServerListener::onServerStart);
 		}
 	}
 
@@ -84,7 +87,14 @@ public class Server implements Container {
 
 	@Override
 	public void handle(Request req, Response res) {
-		try (PrintStream ps = new PrintStream(res.getOutputStream())) {
+		StringBuilder bodySB = new StringBuilder();
+		try (PrintStream ps = new PrintStream(res.getOutputStream()) {
+			@Override
+			public void println(String str) {
+				super.println(str);
+				bodySB.append(str + System.lineSeparator());
+			}
+		}) {
 			svListeners.forEach(l -> l.onServerRequest(req));
 			res.setValue("Content-Type", "application/json");
 			res.setValue("Accept", "application/json");
@@ -107,7 +117,7 @@ public class Server implements Container {
 				ps.println("Houve um erro ao processar o servico: " + e.getMessage());
 			}
 
-			svListeners.forEach(l -> l.onServerResponse(req, res));
+			svListeners.forEach(l -> l.onServerResponse(req, res, bodySB.toString()));
 
 		} catch (IOException e) {
 			System.err.println(e.getMessage());

@@ -11,7 +11,7 @@ public interface ServerListener {
 
 	void onServerRequest(Request req);
 
-	void onServerResponse(Request req, Response res);
+	void onServerResponse(Request req, Response res, String resBody);
 
 	void onPortChange(int novaPorta);
 
