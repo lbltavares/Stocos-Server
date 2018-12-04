@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.simpleframework.http.Request;
 import org.simpleframework.http.Response;
 
+import com.stocos.indicadores.Indicadores;
 import com.stocos.lote.LoteService;
 import com.stocos.produto.ProdutoService;
 import com.stocos.redecosmeticos.RedeCosmeticosService;
@@ -31,6 +32,9 @@ public class ControllerImpl extends AbstractController {
 		get("/produto/getByIdRede", (req, res) -> produtoService.getByIdRede(req.getQuery()));
 		get("/produto/getByNomeRede", (req, res) -> produtoService.getByNomeRede(req.getQuery()));
 		get("/redecosmeticos/getOcupacao", (req, res) -> redeService.getOcupacao(req.getQuery().get("idrede")));
+
+		// Indicadores:
+		get("/indicadores", Indicadores::getIndicadores);
 	}
 
 	private <O> void rotasPadrao(String item, DefaultServicoImpl<O> sv) {
