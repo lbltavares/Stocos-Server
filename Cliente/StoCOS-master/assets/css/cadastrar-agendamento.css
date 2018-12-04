@@ -1,0 +1,19 @@
+#cadastrar-agendamento {
+  margin-top: 3%;
+}
+
+#container-lista{
+    background-size: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: visible;
+}
+
+.navbar-shadow {
+    box-shadow: 0px 0px 5px rgba(30, 30, 30, 0.5);
+}
+
+#listaProdutos, #listaAgendamentos{
+    max-height: 60vh;
+    overflow: auto;
+}
