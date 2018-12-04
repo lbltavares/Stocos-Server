@@ -83,13 +83,13 @@ public class PainelTrafego extends JPanel implements ServerListener {
 		searchPanel.setBorder(new EmptyBorder(0, 6, 0, 6));
 		searchPanel.add(new JLabel("Filtrar: "), BorderLayout.WEST);
 		searchField = new JTextField();
-		searchField.addActionListener(e -> {
+		searchField.addCaretListener(e -> {
 			TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) table.getModel()));
 			sorter.setRowFilter(RowFilter.regexFilter(searchField.getText()));
 			table.setRowSorter(sorter);
 		});
 		searchPanel.add(searchField, BorderLayout.CENTER);
-		clearBtn = new JButton("Limpar");
+		clearBtn = new JButton(new ImageIcon("res/eraser.png"));
 		clearBtn.addActionListener(e -> resetarTabela());
 		searchPanel.add(clearBtn, BorderLayout.EAST);
 		add(searchPanel, BorderLayout.SOUTH);

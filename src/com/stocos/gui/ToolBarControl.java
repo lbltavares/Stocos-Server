@@ -3,6 +3,10 @@ package com.stocos.gui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.MultipleGradientPaint.CycleMethod;
+import java.awt.RadialGradientPaint;
+import java.awt.geom.Point2D;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -34,8 +38,8 @@ public class ToolBarControl extends JToolBar implements ServerListener {
 		return INSTANCE;
 	}
 
-	private static Color stoppedColor = new Color(160, 0, 0);
-	private static Color startedColor = new Color(0, 160, 0);
+	private static Color stoppedColor = new Color(255, 80, 80);
+	private static Color startedColor = new Color(10, 255, 10);
 
 	private JLabel statusLbl, statusTextLbl;
 	private JSpinner porta;
@@ -62,10 +66,18 @@ public class ToolBarControl extends JToolBar implements ServerListener {
 
 			@Override
 			public void paintComponent(Graphics g) {
-				g.setColor(Color.GRAY);
-				g.fillOval(0, 0, getWidth(), getHeight());
-				g.setColor(getBackground());
-				g.fillOval(2, 2, getWidth() - 4, getHeight() - 4);
+				Graphics2D g2d = (Graphics2D) g;
+
+				Point2D center = new Point2D.Float(getWidth() / 2, getHeight() / 2);
+				float radius = 25;
+				Point2D focus = new Point2D.Float(getWidth() / 2, getHeight() / 2);
+				float[] dist = { 0.0f, 1.0f };
+				Color[] colors = { getBackground(), ToolBarControl.getInstance().getBackground() };
+				RadialGradientPaint grad = new RadialGradientPaint(center, radius, focus, dist, colors,
+						CycleMethod.NO_CYCLE);
+
+				g2d.setPaint(grad);
+				g2d.fillOval(0, 0, getWidth(), getHeight());
 				g.dispose();
 			}
 		};
@@ -77,6 +89,7 @@ public class ToolBarControl extends JToolBar implements ServerListener {
 		statusLbl.setMaximumSize(d);
 		statusLbl.setSize(d);
 		statusTextLbl = new JLabel("Pronto");
+		statusTextLbl.setBorder(new EmptyBorder(5, 5, 5, 5));
 		statusTextLbl.setOpaque(true);
 		statusTextLbl.setBackground(new Color(190, 190, 190));
 	}
@@ -91,6 +104,7 @@ public class ToolBarControl extends JToolBar implements ServerListener {
 	private void initButtons() {
 		ButtonGroup group = new ButtonGroup();
 		JToggleButton tbtn = new JToggleButton("Iniciar");
+		tbtn.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tbtn.addActionListener(e -> {
 			Server.getInstance().porta((int) porta.getValue());
 			Server.getInstance().start();
@@ -98,6 +112,7 @@ public class ToolBarControl extends JToolBar implements ServerListener {
 		group.add(tbtn);
 		add(tbtn);
 		tbtn = new JToggleButton("Pausar");
+		tbtn.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tbtn.addActionListener(e -> {
 			Server.getInstance().stop();
 		});
