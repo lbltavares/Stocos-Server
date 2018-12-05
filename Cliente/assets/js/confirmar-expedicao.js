@@ -1,8 +1,8 @@
 $(document).ready(() => {
+  obterValoresIniciais();
   montarListaExpedicoes();
 
     $('#dadosExpedicao').hide();
-  //  montarLista();
 
     // Filtra os itens da tabela
     $("#filtrar").on("keyup", function () {
@@ -161,4 +161,57 @@ function montarLista() {
     }).always(function () {
 
     });
+}
+
+function obterValoresIniciais() {
+  let json = {
+    "produtosExpedicao" : [{
+      dataAgendamento: "2018-12-25T15:10",
+      emailComprador: "gabriel.haddad@teste",
+      enderecoComprador: "Rua teste",
+      idExpedicao: 1,
+      listaProdutos: [{
+        idProduto: "39a98c4b-4d36-47dc-817c-955d8eb2c4f3",
+        nomeProduto: "Perfume Boticario Malbec",
+        quantidadeProduto: "5"
+      }],
+      nomeComprador: "Gabriel",
+      statusAgendamento: "agendado",
+      telefoneComprador: "(31)99999-2130",
+    },
+    {
+      dataAgendamento: "2018-12-25T15:10",
+      emailComprador: "teste@teste",
+      enderecoComprador: "Rua teste2",
+      idExpedicao: 2,
+      listaProdutos: [{
+        idProduto: "282132dd-9d14-45a2-b30d-500503d5538a",
+        nomeProduto: "Rimmel XYZ",
+        quantidadeProduto: "10"
+      },
+      {
+        idProduto: "1aee962d-2b44-4b7b-88d4-378ef5e5e54b",
+        nomeProduto: "Sabonete Natura",
+        quantidadeProduto: "15"
+      }],
+      nomeComprador: "Ronaldo ",
+      statusAgendamento: "confirmado",
+      telefoneComprador: "(31)99999-2130",
+    },
+    {
+      dataAgendamento: "2018-12-02T15:10",
+      emailComprador: "tis@teste",
+      enderecoComprador: "Rua tis",
+      idExpedicao: 3,
+      listaProdutos: [{
+        idProduto: "6df91758-d76a-4c4b-9124-c430a73bdfea",
+        nomeProduto: "Sabonete Avon",
+        quantidadeProduto: "25"
+      }],
+      nomeComprador: "Maria",
+      statusAgendamento: "cancelado",
+      telefoneComprador: "(31)99999-9999",
+    }]
+  }
+  localStorage.setItem('agendamentos', JSON.stringify(json));
 }
