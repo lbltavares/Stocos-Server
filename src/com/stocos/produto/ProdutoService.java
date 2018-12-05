@@ -40,7 +40,6 @@ public class ProdutoService extends DefaultServicoImpl<Produto> {
 			}
 		});
 		produtos.forEach((nome, json) -> arr.put(json));
-		System.out.println(arr);
 		return arr.toString();
 	}
 

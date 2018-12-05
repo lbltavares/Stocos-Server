@@ -7,12 +7,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/logo.png" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/gerenciar-rede-cosmeticos.css">
+    <style>
+        .card-img-top {
+            width: 50%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,21 +33,37 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="cadastrar-rede-cosmeticos.html"><img src="assets/imgs/cadastro.svg"
-                                height="20px"> Cadastrar</a>
-                    </li>
                     <li class="nav-item active">
+                        <a class="nav-link" href="cadastrar-rede-cosmeticos.html"><img src="assets/imgs/cadastro.svg"
+                                height="25px"> Cadastrar</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="gerenciar-rede-cosmeticos.html"><img src="assets/imgs/settings.svg"
-                                height="20px"> Gerenciar</a>
+                                height="25px"> Gerenciar</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/imgs/check-square.svg" height="25px">Entrega
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="cadastrar-agendamento.html">Agendamento</a>
+                            <a class="dropdown-item" href="confirmar-recebimento.html">Confirmação</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/imgs/delivery.svg" height="25px">Expedição
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="agendar-expedicao.html">Agendamento</a>
+                            <a class="dropdown-item" href="confirmar-expedicao.html">Confirmação</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cadastrar-agendamento.html"><img src="assets/imgs/clock.svg"
-                                height="20px"> Agendar entrega</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="confirmar-recebimento.html"><img src="assets/imgs/check-square.svg"
-                                height="20px"> Confirmar recebimento</a>
+                        <a class="nav-link" href="indicadores.html"><img src="assets/imgs/graph.svg" height="25px">
+                            Indicadores</a>
                     </li>
                 </ul>
             </div>
@@ -75,7 +97,7 @@
                                         <canvas id="capacidadeCanvas"></canvas>
                                     </div>
                                     <hr>
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12 none">
                                         <div>
                                             <canvas id='categoriasCanvas'></canvas>
                                         </div>
@@ -83,7 +105,7 @@
                                     <div class="row">
                                         <div class="col-sm-6  ">
                                             <div class="card">
-                                              <div id="info-rede" class="hidden" data-capacidade="" data-ocupacao=""></div>
+                                                <div id="info-rede" class="hidden" data-capacidade="" data-ocupacao=""></div>
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item text-light bg-info"><b>Capacidade: <span
                                                                 id="capacidade"></span></b></li>
@@ -153,6 +175,7 @@
                                 </button>
                             </h5>
                         </div>
+
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                             <div class="card-body">
                                 <p class="nenhumarede">Nenhuma Rede de Cosméticos selecionada</p>
@@ -169,17 +192,10 @@
                                             </tr>
                                         </thead>
                                         <tbody id="corpo-tabela">
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                     <div class="col-sm d-flex flex-row">
                                         <!--<input id="filtrar" class="form-control mr-sm-2" onkeyup='filtrar()' type="search" placeholder="Filtrar">-->
-
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">
@@ -189,109 +205,128 @@
                                             <input id="filtrar" onkeyup="filtrar()" type="text" class="form-control"
                                                 placeholder="Filtrar">
                                         </div>
-
-                                        <button type="button" data-toggle="modal" data-target="#removerModal" class="btn btn-danger">Remover</button>
-                                        <button type="button" data-toggle="modal" data-target="#adicionarModal" id="botao-modal-adicionar-produtos"
-                                            class="btn btn-success">Adicionar</button>
-                                        <div class="modal fade" id="adicionarModal" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Adicionar
-                                                            Produto: </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-row">
-                                                                <div class="form-group col-sm-8">
-                                                                    <label for="nome" class="col-form-label">Nome:</label>
-                                                                    <input type="text" class="form-control" id="nome"
-                                                                        required>
-                                                                </div>
-                                                                <div class="form-group col-sm-4">
-                                                                    <label for="marca" class="col-form-label">Rede /
-                                                                        Marca:</label>
-                                                                    <input type="text" class="form-control" id="marca"
-                                                                        readonly required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-row">
-                                                                <div class="form-group col-sm-12">
-                                                                    <label for="categoria" class="col-form-label">Categoria:</label>
-
-                                                                    <select class="form-control" id="categoria">
-                                                                        <option value="MAQUIAGEM">Maquiagem</option>
-                                                                        <option value="CABELO">Cabelo</option>
-                                                                        <option value="CUIDADOS COM A PELE">Cuidados
-                                                                            Com a Pele</option>
-                                                                        <option value="OUTROS">Outros...</option>
-                                                                    </select required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-row">
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="volume" step=".01" class="col-form-label">Volume:</label>
-                                                                    <input type="number" class="form-control" id="volume"
-                                                                        required>
-                                                                </div>
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="quantidade" class="col-form-label">Quantidade:</label>
-                                                                    <input type="number" class="form-control" id="quantidade"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                        <button id="adicionarProdutos" type="button" class="btn btn-success"
-                                                            data-dismiss="modal">Adicionar</button>
-                                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn collapsed bg-transparent" data-toggle="collapse" data-target="#collapseFour"
+                                    aria-expanded="false" aria-controls="collapseThree">
+                                    <img src="assets/imgs/menu.svg" width="25px"> Solicitações
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                    <div class="card align-items-center">
+                                        <img class="card-img-top" src="assets/imgs/remove.svg" style="width:80px;margin:10px"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Remover Produto do Catálogo</h5>
+                                            <p class="card-text">Solicita a remoção de um produto do catálogo.</p>
+                                            <button type="button" data-toggle="modal" data-target="#removerModal" class="btn btn-danger">Solicitar
+                                                Remoção</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <div class="card align-items-center">
+                                        <img class="card-img-top" src="assets/imgs/add.svg" style="width:80px;margin:10px"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Adicionar Produto ao Catálogo</h5>
+                                            <p class="card-text">Solicita a adição de um produto ao catálogo.</p>
+                                            <button type="button" data-toggle="modal" data-target="#adicionarModal"
+                                                class="btn btn-success">Solicitar Adição</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="adicionarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Adicionar
+                                            Produto: </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-8">
+                                                    <label for="nome" class="col-form-label">Nome:</label>
+                                                    <input type="text" class="form-control" id="nome" required>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="marca" class="col-form-label">Rede /
+                                                        Marca:</label>
+                                                    <input type="text" class="form-control" id="marca" readonly
+                                                        required>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-12">
+                                                    <label for="categoria" class="col-form-label">Categoria:</label>
 
-                                        <div class="modal fade" id="removerModal" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Remover um
-                                                            Produto</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-row">
-                                                                <p>Insira o ID do produto e a quantidade que deseja
-                                                                    remover:</p>
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="recipient-name" class="col-form-label">ID:</label>
-                                                                    <input type="number" class="form-control" id="idremover">
-                                                                </div>
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="recipient-name" class="col-form-label">Quantidade:</label>
-                                                                    <input type="number" class="form-control" id="quantidaderemover">
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                        <button id="removerProduto" type="button" class="btn btn-danger"
-                                                            data-dismiss="modal">Remover</button>
-                                                    </div>
+                                                    <select class="form-control" id="categoria">
+                                                        <option value="MAQUIAGEM">Maquiagem</option>
+                                                        <option value="CABELO">Cabelo</option>
+                                                        <option value="CUIDADOS COM A PELE">Cuidados
+                                                            Com a Pele</option>
+                                                        <option value="OUTROS">Outros...</option>
+                                                    </select required>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-12">
+                                                    <label for="volume" step=".01" class="col-form-label">Volume:</label>
+                                                    <input type="number" class="form-control" id="volume" required>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button id="adicionarProdutos" type="button" class="btn btn-success"
+                                            data-dismiss="modal">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="removerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Remover um
+                                            Produto</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <p>Insira o ID do produto que deseja remover:</p>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="recipient-name" class="col-form-label">ID:</label>
+                                                    <input type="text" class="form-control" id="idremover">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button id="removerProduto" type="button" class="btn btn-danger" data-dismiss="modal">Remover</button>
                                     </div>
                                 </div>
                             </div>

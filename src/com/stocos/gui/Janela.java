@@ -52,6 +52,7 @@ public class Janela extends JFrame implements WindowListener {
 		mainPanel = new JPanel(new BorderLayout());
 		JTabbedPane tabPane = new JTabbedPane();
 		tabPane.addTab("Trafego", PainelTrafego.getInstance());
+		tabPane.addTab("Solicitacoes", PainelSolicitacoes.getInstance());
 		mainPanel.add(tabPane, BorderLayout.CENTER);
 		mainPanel.add(ToolBarControl.getInstance(), BorderLayout.SOUTH);
 		setContentPane(mainPanel);

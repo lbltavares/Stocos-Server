@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.simpleframework.http.Query;
 
 import com.stocos.dao.DefaultDaoImpl;
+import com.stocos.gui.PainelSolicitacoes;
 
 public class DefaultServicoImpl<O> implements Servico<UUID, O> {
 
@@ -48,7 +49,9 @@ public class DefaultServicoImpl<O> implements Servico<UUID, O> {
 
 	@Override
 	public String add(JSONObject json) throws Exception {
-		return new JSONObject().put("status", dao.create(dao.fromJson(json))).toString();
+		PainelSolicitacoes.getInstance().criarSolicitacao("Adicionar", json, dao);
+		// dao.create(dao.fromJson(json))
+		return new JSONObject().put("status", true).toString();
 	}
 
 	@Override

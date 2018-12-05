@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/logo.png"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
@@ -28,19 +28,35 @@
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="cadastrar-rede-cosmeticos.html"><img src="assets/imgs/cadastro.svg"
-                                height="20px"> Cadastrar</a>
+                                height="25px"> Cadastrar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="gerenciar-rede-cosmeticos.html"><img src="assets/imgs/settings.svg"
-                                height="20px"> Gerenciar</a>
+                                height="25px"> Gerenciar</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/imgs/check-square.svg" height="25px">Entrega
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="cadastrar-agendamento.html">Agendamento</a>
+                            <a class="dropdown-item" href="confirmar-recebimento.html">Confirmação</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/imgs/delivery.svg" height="25px">Expedição
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="agendar-expedicao.html">Agendamento</a>
+                            <a class="dropdown-item" href="confirmar-expedicao.html">Confirmação</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cadastrar-agendamento.html"><img src="assets/imgs/clock.svg"
-                                height="20px"> Agendar entrega</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="confirmar-recebimento.html"><img src="assets/imgs/check-square.svg"
-                                height="20px"> Confirmar Recebimento</a>
+                        <a class="nav-link" href="indicadores.html"><img src="assets/imgs/graph.svg" height="25px">
+                            Indicadores</a>
                     </li>
                 </ul>
             </div>
@@ -53,26 +69,28 @@
             <div class="col-md">
                 <div class="d-flex flex-row">
                     <img src="assets/imgs/check-square.svg" height="40px" style="margin-right: 10px;">
-                    <h2>Dados do Lote</h2>
+                    <h2>Dados da Expedição</h2>
                 </div>
                 <hr>
-                <div id="dadosLote">
+                <div id="dadosExpedicao">
                     <div class="card">
                         <div class="card-header">
-                            <div id="nomeRede"></div>
+                            <div id="nomeComprador"></div>
+                            <div id="status-icon" class="float-right"></div>
+                            <div id="expedicao-selecionada" data-id-expedicao=""></div>
+                            <div id="emailComprador"></div>
+                            <div id="telefoneComprador"></div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">
-                                <div id="nomeProd"></div>
-                            </h5>
-                            <div id="dataEntrega"></div>
-                            <div id="dataValidade"></div>
-                            <div id="quantidadeProd"></div>
-                            <div id="idLote"></div>
+                            <div>Lista de Produtos</div>
+                            <div id="listaProdutos"></div>
+                            <hr>
+                            <div id="dataExpedicao"></div>
+                            <div id="statusExpedicao"></div>
                             <br>
                             <div>
-                                <a href="#" id="confirmarRecebimento" class="btn btn-success">Confirmar</a>
-                                <a href="#" id="cancelarRecebimento" class="btn btn-danger">Cancelar</a>
+                                <a href="#" id="confirmarExpedicao" class="btn btn-success">Confirmar</a>
+                                <a href="#" id="cancelarExpedicao" class="btn btn-danger">Cancelar</a>
                             </div>
                             <!-- <a href="#" id="confirmarRecebimento" class="btn btn-success">Confirmar</a>
                             <a href="#" id="confirmarRecebimento" class="btn btn-success">Confirmar</a> -->
@@ -82,7 +100,7 @@
             </div>
             <div class="col-md">
                 <div>
-                    <h4><img src="assets/imgs/enterprise.svg" width="25px"> Lotes Agendados: </h4>
+                    <h4><img src="assets/imgs/enterprise.svg" width="25px"> Expedições Agendadas: </h4>
                 </div>
                 <div id="container-lista">
                     <div class="divlista">
@@ -94,7 +112,7 @@
                             </div>
                             <input id="filtrar" type="text" class="form-control" placeholder="Filtrar">
                         </div>
-                        <div id="listaRedes" class="list-group">
+                        <div id="listaExpedicoes" class="list-group">
                         </div>
                     </div>
                 </div>
@@ -105,7 +123,7 @@
 
     <footer class="page-footer font-small blue pt-4">
         <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="#"> stocos.com.br</a>
+            <a href="#"> StoCOS - TIS II</a>
         </div>
     </footer>
 
@@ -116,8 +134,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
         crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="assets/js/confirmar-recebimento.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/confirmar-expedicao.js"></script>
 </body>
 
 </html>

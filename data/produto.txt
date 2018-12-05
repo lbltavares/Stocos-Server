@@ -98,3 +98,4 @@
 {"volume":14.862,"marca":"Weiss","categoria":"Hastes","nome":"Hastes de Limpeza Weiss","id":"302f3961-feb8-41cd-a8f1-d7a5e675543b"}
 {"volume":5.8704,"marca":"Lepthin","categoria":"Delineador","nome":"Delineador Lepthin","id":"ed0c785f-573d-4de4-b0a6-6267162382ec"}
 {"volume":9.667,"marca":"Ritter","categoria":"Cilios","nome":"Cilios Ritter","id":"48a97e9f-7208-48a9-9b17-8394a3115000"}
+{"volume":3,"marca":"","categoria":"CABELO","nome":"Produto001","id":"0240c456-9ad5-421b-9b2a-616940d53a67"}

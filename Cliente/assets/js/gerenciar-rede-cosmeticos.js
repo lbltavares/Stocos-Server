@@ -1,7 +1,7 @@
 $(document).ready(() => {
     $('.divinfo').hide();
-    buscarRedes();
-    inicialiarBotaoAbrirModalAdicaoProdutos();
+    montarListaDeRedes();
+
     // Filtra os itens da tabela
     $("#filtrarRedes").on("keyup", function () {
         var value = $(this).val().toLowerCase();
@@ -11,40 +11,32 @@ $(document).ready(() => {
     });
 });
 
-function obterRedePorNome(){
-  
-}
-
 // Busca as redes de cosméticos no servidor e atualiza o input dropdown
-function buscarRedes() {
+function montarListaDeRedes() {
     $.get('http://localhost:4567/redecosmeticos/getall', (data) => {
         if (data) {
             if (data.length > 0) {
                 $('#listaderedes').empty();
                 for (var i = 0; i < data.length; i++) {
                     var rede = data[i];
-                    $('#listaderedes').append('<a class="list-group-item list-group-item-action" data-id-rede="' + rede.id + '"' +
-                        ' id="list-home-list" data-toggle="list" href="#list-home" onclick="atualizarInfos(this);" role="tab" aria-controls="home">' +
-                        rede.nome +
-                        '</a>');
+                    $('#listaderedes').append('<a class="list-group-item list-group-item-action" data-id-rede="'
+                        + rede.id
+                        + '" id="list-home-list" data-toggle="list" href="#list-home" onclick="atualizarInfos(this);" role="tab" aria-controls="home">'
+                        + rede.nome
+                        + '</a>');
                 }
             }
         }
-    }).done(function (data) {
-
-    }).fail(function () {
-
-    }).always(function () {
-
     });
 }
 
 // Atualiza as informações da tabela e de capacidade, de acordo com a rede selecionada
 function atualizarInfos(rede) {
+    let id = $(rede).data('id-rede');
     $('.nenhumarede').hide();
     $('.divinfo').show();
-    atualizarCapacidade($(rede).data('id-rede'));
-    atualizarTabela($(rede).html(), $(rede).data('id-rede'));
+    atualizarCapacidade(id);
+    atualizarTabela($(rede).html(), id);
 }
 
 // Atualizar capacidade, volumeDisponivel e volumeOcupado
@@ -53,7 +45,7 @@ function atualizarCapacidade(rede) {
     $.get('http://localhost:4567/redeCosmeticos/getOcupacao?idrede=' + rede, (data) => {
         if (data && !data.status) {
             $('#info-rede').data('ocupacao', data.resultado);
-             atualizarInformacoesTela(rede);
+            atualizarInformacoesTela(rede);
         }
     }).done(function (data) {
     }).fail(function () {
@@ -61,29 +53,29 @@ function atualizarCapacidade(rede) {
     });
 
     $.ajax({
-      type: 'GET',
-      url: 'http://localhost:4567/redeCosmeticos/getByAtributo?id=' + rede,
-      success: function (retorno) {$('#info-rede').data('capacidade', retorno[0].capacidade); atualizarInformacoesTela(rede);  },
+        type: 'GET',
+        url: 'http://localhost:4567/redeCosmeticos/getByAtributo?id=' + rede,
+        success: function (retorno) { $('#info-rede').data('capacidade', retorno[0].capacidade); atualizarInformacoesTela(rede); },
         contentType: "text/plain",
-      dataType: 'json'
+        dataType: 'json'
     });
 
 }
 
-function atualizarInformacoesTela(rede){
+function atualizarInformacoesTela(rede) {
 
-      let ocupacao = $('#info-rede').data('ocupacao');
-      let capacidade = $('#info-rede').data('capacidade');
+    let ocupacao = $('#info-rede').data('ocupacao');
+    let capacidade = $('#info-rede').data('capacidade');
 
-      $('#capacidade').html(capacidade);
-      $('#ocupacao').html(ocupacao);
-      $('#volumeDisponivel').html(capacidade - ocupacao);
-      var dados = {
-          capacidade: capacidade,
-          volumeOcupado: ocupacao,
-      }
-      atualizarGraficos(dados);
-      atualizarGraficoCategoria(rede);
+    $('#capacidade').html(capacidade);
+    $('#ocupacao').html(ocupacao);
+    $('#volumeDisponivel').html(capacidade - ocupacao);
+    var dados = {
+        capacidade: capacidade,
+        volumeOcupado: ocupacao,
+    }
+    atualizarGraficos(dados);
+    atualizarGraficoCategoria(rede);
 }
 
 function atualizarGraficos(dados) {
@@ -123,7 +115,6 @@ function atualizarGraficos(dados) {
 
 function atualizarGraficoCategoria(rede) {
     $.get('http://localhost:4567/produto/getAll', (data) => {
-        console.log(data.length);
         if (data.length == 0) {
             $('#categoriasCanvas').hide();
         } else {
@@ -171,70 +162,65 @@ function atualizarGraficoCategoria(rede) {
     });
 }
 
-function atualizarTabela(rede, idRede) {
+function atualizarTabela(rede, id) {
     $('#corpo-tabela').empty();
-    var produtos = [];
-    $.get('http://localhost:4567/produto/getAll', (data) => {
-        if (data && !data.status) {
-            for (var i = 0; i < data.length; i++) {
-                produtos[i] = data[i];
-            }
-            if (data.length != 0) {
-                for (let i = 0; i < produtos.length; i++) {
-                    var produto = produtos[i];
-                    var id = produto['id'];
-                    var nome = produto['nome'];
-                    var marca = produto['marca'];
-                    var categoria = produto['categoria'];
-                    var quantidade = produto['quantidade'];
-                    var volume = produto['volume'];
-                    $.get('http://localhost:4567/lote/getByAtributo?idrede=' + idRede, (data) => {
-                      console.log(idRede);
-                        console.log(data);
-                        $('#corpo-tabela').append(
-                            '<tr><th scope="row">' + id +
-                            '</th><td>' + nome +
-                            '</td><td>' + marca +
-                            '</td><td>' + categoria +
-                            '</td><td>' + volume +
-                            '</td><td>' + quantidade +
-                            '</td></tr>');
-                    });
-               }
-            } else {
+    $.get('http://localhost:4567/produto/getTodosOsProdutosDaRede?id-rede=' + id, (produtos) => {
+        if (produtos) {
+            if (produtos.length == 0) {
                 $('#corpo-tabela').append('<tr><th scope="row"></th><td>Não há produtos cadastrados</td><td></td><td></td><td></td><td></td></tr>');
+            } else {
+                for (let i = 0; i < produtos.length; i++) {
+                    let p = produtos[i];
+                    $('#corpo-tabela').append(
+                        '<tr><th scope="row">'
+                        + p.id.substring(1, 10) +
+                        '</th><td>' + p.nome +
+                        '</td><td>' + p.marca +
+                        '</td><td>' + p.categoria +
+                        '</td><td>' + p.volume +
+                        '</td><td>' + p.qnt +
+                        '</td></tr>');
+                }
             }
+        } else {
+            $('#corpo-tabela').append('<tr><th scope="row"></th><td>Não há produtos cadastrados</td><td></td><td></td><td></td><td></td></tr>');
         }
-    })
-    .done(function (data) {})
-    .fail(function () {})
-    .always(function () {});
+    });
 }
 
 // Adiciona Produtos
-function inicialiarBotaoAbrirModalAdicaoProdutos() {
-  $("#botao-modal-adicionar-produtos").click(() => {
-     limparModalAdicionarProdutos();
-    let rede = $('#listaderedes a.active').html();
-    $('#marca').val(rede);
-  });
-}
+$("#botao-modal-adicionar-produtos").click(() => {
+    $("#nome").val("Insira o nome do produto");
+    $("#volume").val("0.0");
+    $("#quantidade").val("0");
+    $('#marca').val($('#listaderedes a.active').html());
+});
 
-
+// Adiciona um produto - Botao interno DO MODAL
 $('#adicionarProdutos').click(() => {
-    let nome = $('#nome').val();
-    let marca = $('#marca').val();
-    let categoria = $('#categoria').val();
-    let volume = $('#volume').val();
-    let quantidade = $('#quantidade').val();
-    let rede = $('#listaderedes a.active').html();
-
-    $.get('http://localhost:4567/produto/add?nomerede=' + rede +
-        '&nome=' + nome + '&marca=' + marca + '&categoria=' + categoria + '&volume=' + volume + '&quantidade=' + quantidade, (data) => {
-            if (data) {
-                atualizarInfos(rede);
+    let p = {};
+    p.nome = $('#nome').val();
+    p.marca = $('#marca').val();
+    p.categoria = $('#categoria').val();
+    p.volume = $('#volume').val();
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:4567/produto/add',
+        data: JSON.stringify(p),
+        success: function (data) {
+            if (data.status == true) {
+                // O produto foi adicionado
+                alert('Sua solicitação para adicionar o Produto no catálogo foi enviada!');
+            } else {
+                alert('O produto informado já existe no catálogo!');
             }
-        });
+        },
+        error: function (err) {
+
+        },
+        contentType: "text/plain; charset=utf-8",
+        dataType: 'json'
+    });
 });
 
 // Remove um produto
@@ -257,7 +243,6 @@ $('#mudarCapacidadeBtn').click(() => {
     let novaCapacidade = $('#novaCapacidade').val();
     $.get('http://localhost:4567/setor/alterar?nomerede=' + rede + '&novacapacidade=' + novaCapacidade, (data) => {
         if (data) {
-            console.log(data);
             atualizarInfos(rede);
         }
     });
@@ -289,13 +274,4 @@ function filtrar() {
             }
         }
     }
-}
-
-//Limpar modal Adicionar Produtos
-
-function limparModalAdicionarProdutos(){
-  $("#nome").val("");
-  $("#marca").val("");
-  $("#volume").val("");
-  $("#quantidade").val("");
 }
