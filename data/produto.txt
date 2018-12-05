@@ -1,0 +1,1 @@
+{"volume":3.5,"marca":"","categoria":"MAQUIAGEM","nome":"Rimmel XYZ","id":"282132dd-9d14-45a2-b30d-500503d5538a"}

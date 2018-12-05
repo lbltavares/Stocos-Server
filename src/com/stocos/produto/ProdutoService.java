@@ -28,7 +28,6 @@ public class ProdutoService extends DefaultServicoImpl<Produto> {
 	@Override
 	public String add(JSONObject json) {
 		PainelSolicitacoes.getInstance().criarSolicitacao("Adicionar", json, getDao());
-		// dao.create(dao.fromJson(json))
 		return new JSONObject().put("status", true).toString();
 	}
 

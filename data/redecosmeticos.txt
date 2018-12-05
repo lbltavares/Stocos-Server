@@ -1,1 +1,2 @@
-{"telefone":"(13)01938-1783","endereco":"Rua xyz, 123","capacidade":10000,"nome":"Lojas Rede","id":"cb45d0b3-9dda-49be-a87e-cf24ca75f0bc","email":"avon@avon.com"}
+{"telefone":"(13)01938-1783","endereco":"Rua xyz, 123","capacidade":4000,"nome":"Lojas Rede","id":"cb45d0b3-9dda-49be-a87e-cf24ca75f0bc","email":"avon@avon.com"}
+{"telefone":"(39)18173-7193","endereco":"rua xyz, 123","capacidade":10000,"nome":"Avon","id":"10628d61-8f2f-4e12-b551-04e866111303","email":"avon@avon.com"}

@@ -47,9 +47,6 @@ function atualizarCapacidade(rede) {
             $('#info-rede').data('ocupacao', data.resultado);
             atualizarInformacoesTela(rede);
         }
-    }).done(function (data) {
-    }).fail(function () {
-    }).always(function () {
     });
 
     $.ajax({
@@ -109,55 +106,6 @@ function atualizarGraficos(dados) {
                     stacked: true
                 }]
             }
-        }
-    });
-}
-
-function atualizarGraficoCategoria(rede) {
-    $.get('http://localhost:4567/produto/getAll', (data) => {
-        if (data.length == 0) {
-            $('#categoriasCanvas').hide();
-        } else {
-            $('#categoriasCanvas').show();
-
-            var dados = [];
-            for (let i = 0; i < data.length; i++) {
-                if (!dados[data[i].categoria]) {
-                    dados[data[i].categoria] = data[i].quantidade;
-                } else {
-                    dados[data[i].categoria] += data[i].quantidade;
-                }
-            }
-            let categorias = [];
-            let quantidades = [];
-            let cores = [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ];
-            for (let i in dados) {
-                categorias.push(i);
-                quantidades.push(dados[i]);
-                cores.push(getRandomColor());
-            }
-
-            var ctx = document.getElementById('categoriasCanvas').getContext('2d');
-            var myDoughnutChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    datasets: [{
-                        data: quantidades,
-                        backgroundColor: cores,
-                        hoverBackgroundColor: cores,
-                    }],
-
-                    labels: categorias,
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                }
-            });
         }
     });
 }
@@ -241,9 +189,27 @@ $('#removerProduto').click(() => {
 $('#mudarCapacidadeBtn').click(() => {
     let rede = $('#listaderedes a.active').html();
     let novaCapacidade = $('#novaCapacidade').val();
-    $.get('http://localhost:4567/setor/alterar?nomerede=' + rede + '&novacapacidade=' + novaCapacidade, (data) => {
+    $.get('http://localhost:4567/redeCosmeticos/getByAtributo?nome=' + rede, (data) => {
         if (data) {
-            atualizarInfos(rede);
+            let rede = data[0];
+            rede.capacidade = novaCapacidade;
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:4567/redeCosmeticos/update',
+                data: JSON.stringify(rede),
+                success: function (res) {
+                    if (res) {
+                        if (res.status == true) {
+                            alert("Capacidade alterada com sucesso!");
+                            location.reload();
+                        } else {
+                            location.reload();
+                        }
+                    }
+                },
+                contentType: "text/plain",
+                dataType: 'json'
+            });
         }
     });
 });
@@ -274,4 +240,57 @@ function filtrar() {
             }
         }
     }
+}
+
+
+
+
+
+function atualizarGraficoCategoria(id) {
+    $.get('http://localhost:4567/produto/getTodosOsProdutosDaRede?nome=' + id, (data) => {
+        if (data.length == 0) {
+            $('#categoriasCanvas').hide();
+        } else {
+            $('#categoriasCanvas').show();
+
+            var dados = [];
+            for (let i = 0; i < data.length; i++) {
+                if (!dados[data[i].categoria]) {
+                    dados[data[i].categoria] = data[i].quantidade;
+                } else {
+                    dados[data[i].categoria] += data[i].quantidade;
+                }
+            }
+            let categorias = [];
+            let quantidades = [];
+            let cores = [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ];
+            for (let i in dados) {
+                categorias.push(i);
+                quantidades.push(dados[i]);
+                cores.push(getRandomColor());
+            }
+
+            var ctx = document.getElementById('categoriasCanvas').getContext('2d');
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: quantidades,
+                        backgroundColor: cores,
+                        hoverBackgroundColor: cores,
+                    }],
+
+                    labels: categorias,
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            });
+        }
+    });
 }
