@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import org.simpleframework.http.Query;
 
 import com.stocos.dao.DefaultDaoImpl;
+import com.stocos.gui.PainelSolicitacoes;
 import com.stocos.lote.LoteDao;
 import com.stocos.redecosmeticos.RedeCosmeticos;
 import com.stocos.redecosmeticos.RedeCosmeticosDao;
@@ -22,6 +23,13 @@ public class ProdutoService extends DefaultServicoImpl<Produto> {
 
 	public ProdutoService() {
 		super(ProdutoDao.getInstance());
+	}
+
+	@Override
+	public String add(JSONObject json) {
+		PainelSolicitacoes.getInstance().criarSolicitacao("Adicionar", json, getDao());
+		// dao.create(dao.fromJson(json))
+		return new JSONObject().put("status", true).toString();
 	}
 
 	public String getTodosOsProdutosDaRede(Query query) {
