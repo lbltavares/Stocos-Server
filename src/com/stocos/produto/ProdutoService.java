@@ -1,7 +1,9 @@
 package com.stocos.produto;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
@@ -20,6 +22,26 @@ public class ProdutoService extends DefaultServicoImpl<Produto> {
 
 	public ProdutoService() {
 		super(ProdutoDao.getInstance());
+	}
+
+	public String getTodosOsProdutosDaRede(Query query) {
+		String idRede = query.get("id-rede");
+		JSONArray arr = new JSONArray();
+		Map<String, JSONObject> produtos = new HashMap<>();
+		LoteDao.getInstance().getByAtributoAsJson("id-rede", idRede).forEach(l -> {
+			String id = l.getString("id-produto");
+			int qnt = l.getInt("quantidade");
+			JSONObject p = ProdutoDao.getInstance().getByIdAsJson(id);
+			p.put("qnt", qnt);
+			if (produtos.containsKey(p.getString("nome"))) {
+				produtos.get("nome").accumulate("qnt", qnt);
+			} else {
+				produtos.put(p.getString("nome"), p);
+			}
+		});
+		produtos.forEach((nome, json) -> arr.put(json));
+		System.out.println(arr);
+		return arr.toString();
 	}
 
 	public String getByIdRede(Query query) throws Exception {

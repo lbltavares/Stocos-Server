@@ -33,6 +33,7 @@ public class ControllerImpl extends AbstractController {
 		// Rotas especificas:
 		get("/produto/getByIdRede", (req, res) -> produtoService.getByIdRede(req.getQuery()));
 		get("/produto/getByNomeRede", (req, res) -> produtoService.getByNomeRede(req.getQuery()));
+		get("/produto/getTodosOsProdutosDaRede", (req, res) -> produtoService.getTodosOsProdutosDaRede(req.getQuery()));
 		get("/redecosmeticos/getOcupacao", (req, res) -> redeService.getOcupacao(req.getQuery().get("idrede")));
 
 		// Indicadores:
