@@ -1,2 +1,6 @@
-{"telefone":"(13)01938-1783","endereco":"Rua xyz, 123","capacidade":4000,"nome":"Lojas Rede","id":"cb45d0b3-9dda-49be-a87e-cf24ca75f0bc","email":"avon@avon.com"}
+{"telefone":"(13)01938-1783","endereco":"Rua xyz, 123","capacidade":500,"nome":"Lojas Rede","id":"cb45d0b3-9dda-49be-a87e-cf24ca75f0bc","email":"avon@avon.com"}
 {"telefone":"(39)18173-7193","endereco":"rua xyz, 123","capacidade":10000,"nome":"Avon","id":"10628d61-8f2f-4e12-b551-04e866111303","email":"avon@avon.com"}
+{"telefone":"(31)91879-3918","endereco":"Av. Getulio Vargas, 193","capacidade":5600,"nome":"Beauty","id":"f555027d-2f90-4e93-bd59-a23f166457e7","email":"beauty@beauty.com"}
+{"telefone":"(31)83891-0291","endereco":"Rua xyz, 4817","capacidade":4600,"nome":"Araujo","id":"139b4a83-c231-4ca0-af1b-6524e8b14ca3","email":"Araujo@araujo.com"}
+{"telefone":"(31)93810-2812","endereco":"Rua 31, n 9483","capacidade":6700,"nome":"Natura","id":"0f8b4cb4-1a72-48f1-9db3-7e0d60b7c014","email":"natura@natura.com"}
+{"telefone":"(31)31292-8192","endereco":"Av Bernardo Guimaraes, 4918","capacidade":15000,"nome":"Loreal","id":"21966041-69f5-44cd-906a-ecc945e6ed5d","email":"loreal@loreal.com"}

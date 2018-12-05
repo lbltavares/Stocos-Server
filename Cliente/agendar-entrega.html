@@ -82,29 +82,36 @@
                                     data-id-produto="" required readonly>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Nome da Rede: </label>
+                                <input type="text" class="form-control" id="nome-da-rede" placeholder="Insira o nome da Rede de Cosmeticos"
+                                    required>
+                            </div>
+                        </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="inputPassword4">Quantidade: </label>
+                                <label>Quantidade: </label>
                                 <input type="number" min="1" max="500" step="1" class="form-control" id="quantidade"
                                     placeholder="1 - 500" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="inputEmail4">Data da entrega: </label>
-                                <input type="date" class="form-control" id="data-agendamento" placeholder="dd/mm/yyyy"
+                                <input type="date" class="form-control" id="data-entrega" placeholder="dd/mm/yyyy"
                                     required>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="inputEmail4">Data de vencimento: </label>
-                                <input type="date" class="form-control" id="data-vencimento" placeholder="dd/mm/yyyy"
+                                <label for="inputEmail4">Data de Validade: </label>
+                                <input type="date" class="form-control" id="data-validade" placeholder="dd/mm/yyyy"
                                     required>
                             </div>
                         </div>
                         <div id="status-cadastro"></div>
-                        <div class="d-flex flex-row-reverse">
-                            <button id="cadastrar-agendamento" class="btn btn-lg btn-success">Cadastrar</button>
-                        </div>
                     </form>
+                    <div class="d-flex flex-row-reverse">
+                        <button id="cadastrar-agendamento" class="btn btn-lg btn-success">Cadastrar</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md">
@@ -141,7 +148,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
-    <script type="text/javascript" src="assets/js/cadastrar-agendamento.js"></script>
+    <script type="text/javascript" src="assets/js/agendar-entrega.js"></script>
 
 </body>
 

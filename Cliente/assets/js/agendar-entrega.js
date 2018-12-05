@@ -5,35 +5,39 @@ $(document).ready(() => {
 
     // Tenta realizar o cadastro
     $('#cadastrar-agendamento').click(() => {
-        let produto = $('#produto').data('id-produto');
-        let quantidade = $('#quantidade').val();
-        let dataAgendamento = $('#data-agendamento').val();
-        let dataVencimento = $('#data-vencimento').val();
-        let idRede = "883c657a-8ce1-4ef1-bf47-1d9481afbd5e"; //Lojas Rede //TODO: Obter Rede logada
-
-        dataVencimento = formataData(dataVencimento);
-        if(!nuloOuVazio(produto) || !nuloOuVazio(quantidade) || !nuloOuVazio(dataAgendamento) || !nuloOuVazio(dataVencimento)){
-          let lote = {
-            "status" : 1,
-            "id-rede" : idRede,
-            "id-produto" : produto,
-            "quantidade" : quantidade,
-            "data-validade" : dataVencimento,
-            "data-entrega" : "0000-01-01",
-            "data-agendamento" : dataAgendamento
-          }
-          $.ajax({
-            type: 'POST',
-            url: 'http://localhost:4567/lote/add',
-            data: JSON.stringify(lote),
-            success: function (data) { if(data){$("#status-cadastro").text("Agendado com sucesso!")} montarListaAgendamentos(); },
-            contentType: "text/plain",
-            dataType: 'json'
-          });
-        } else {
-          //TODO: melhorar aviso
-          alert("Preencha todos os campos");
-        }
+        let lote = {};
+        lote['status'] = 1;
+        lote['id-produto'] = $('#produto').data('id-produto');
+        lote['quantidade'] = $('#quantidade').val();
+        lote['data-validade'] = $('#data-validade').val() + 'T00:00';
+        lote['data-entrega'] = $('#data-entrega').val();
+        lote['data-agendamento'] = '2018-12-05';
+        let nomeRede = $('#nome-da-rede').val();
+        $.get('http://localhost:4567/redeCosmeticos/getAll', (data) => {
+            if (data) {
+                for (let r = 0; r < data.length; r++) {
+                    let rede = data[r];
+                    if (rede.nome == nomeRede) {
+                        lote['id-rede'] = rede.id;
+                        $.ajax({
+                            type: 'POST',
+                            url: 'http://localhost:4567/lote/add',
+                            data: JSON.stringify(lote),
+                            success: function (data) {
+                                if (data) {
+                                    if (data.status == true) {
+                                        alert('O agendamento foi confirmado com sucesso!');
+                                    }
+                                }
+                            },
+                            contentType: "text/plain",
+                            dataType: 'json'
+                        });
+                        break;
+                    }
+                }
+            }
+        });
     });
 
     // Filtra os produtos da lista
@@ -66,10 +70,10 @@ function montarListaProdutos() {
                 $('#listaProdutos').empty();
                 for (var i = 0; i < data.length; i++) {
                     var produto = data[i];
-                    $('#listaProdutos').append('<div class="list-group-item list-group-item-action"'+
-                    'data-id-produto="'+ produto.id + '" data-nome-produto="' + produto.nome + '"' +
-                    ' id="list-home-list" data-toggle="list" href="#list-home" onclick="atualizarInfos(this);"' +
-                    ' role="tab" aria-controls="home">' + produto.nome + '</div>');
+                    $('#listaProdutos').append('<div class="list-group-item list-group-item-action"' +
+                        'data-id-produto="' + produto.id + '" data-nome-produto="' + produto.nome + '"' +
+                        ' id="list-home-list" data-toggle="list" href="#list-home" onclick="atualizarInfos(this);"' +
+                        ' role="tab" aria-controls="home">' + produto.nome + '</div>');
                 }
                 $('#filtrarProdutosDiv').show();
             } else {
@@ -100,7 +104,7 @@ function montarListaAgendamentos() {
                 for (var i = 0; i < data.length; i++) {
                     var agendamento = data[i];
                     $('#listaAgendamentos').append('<div class="list-group-item list-group-item-action">'
-                    + agendamento.dataAgendamento + ' ' + agendamento.idProduto + '</div>');
+                        + agendamento.dataAgendamento + ' ' + agendamento.idProduto + '</div>');
                 }
                 $('#filtrarAgendamentosDiv').show();
             } else {
@@ -119,11 +123,11 @@ function montarListaAgendamentos() {
 }
 
 //Atualiza as informações do formulário ao escolher produto
-function atualizarInfos (produtoClicado){
-  $("#produto").val('');
-  let nomeProduto = $(produtoClicado).data("nome-produto");
-  let idProduto = $(produtoClicado).data("id-produto");
-  $("#produto").val(nomeProduto);
-  $("#produto").data("id-produto", idProduto);
+function atualizarInfos(produtoClicado) {
+    $("#produto").val('');
+    let nomeProduto = $(produtoClicado).data("nome-produto");
+    let idProduto = $(produtoClicado).data("id-produto");
+    $("#produto").val(nomeProduto);
+    $("#produto").data("id-produto", idProduto);
 
 }

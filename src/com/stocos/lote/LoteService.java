@@ -46,6 +46,7 @@ public class LoteService extends DefaultServicoImpl<Lote> {
 
 	@Override
 	public String add(JSONObject json) throws Exception {
+		System.out.println(json);
 		Lote lote = getDao().fromJson(json);
 		if (lote.getStatus() != 1)
 			throw new Exception("Erro ao adicionar lote! O status inicial deve ser 1." + lote.getStatus());
